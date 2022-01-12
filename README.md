@@ -11,5 +11,31 @@ response-handle:
   common-success-code: 200  
   common-success-message: success
 ```
+```java
+public class TestException extends BaseException {
 
+    public static final TestException TEST_EXCEPTION_1 = new TestException(101, null, "测试错误1");
+    public static final TestException TEST_EXCEPTION_2 = new TestException(102, null, "测试错误2");
+
+    public TestException(Integer code, Object data, String message1) {
+        super(code, data, message1);
+    }
+}
+```
+```
+    @GetMapping("test1")
+    public Object test1(boolean flag) {
+        if(flag){
+            throw TestException.TEST_EXCEPTION_1;
+        }else{
+            return 1;
+        }
+    }
+```
+```json
+{"code":101,"data":null,"message":"测试错误1"}
+```
+```json
+{"code":200,"data":1,"message":"success"}
+```
 
