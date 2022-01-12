@@ -9,6 +9,8 @@ import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Pointcut;
 
+import javax.xml.bind.ValidationException;
+
 /**
  * Created by sk on 2022/1/12
  */
@@ -33,13 +35,17 @@ public class ResponseHandler {
             proceed = pjp.proceed();
         } catch (BaseException e) {
             return ResultInfo.fail(e.getCode(), e.getData(), e.getMessage());
+        } catch (ValidationException e) {
+            e.printStackTrace();
+            log.error("参数检查异常：[{}]", e.getMessage());
+            return ResultInfo.fail(config.commonFailCode, e.getMessage());
         } catch (RuntimeException e) {
             e.printStackTrace();
-            log.error("系统运行时异常：[{}]", e.getMessage());
+            log.error("系统运行时异常：[{}]", e.getMessage() == null ? e.toString() : e.getMessage());
             return ResultInfo.fail(config.commonFailCode, config.commonFailMessage);
         } catch (Throwable e) {
             e.printStackTrace();
-            log.error("系统内部异常：[{}]", e.getMessage());
+            log.error("系统内部异常：[{}]", e.getMessage() == null ? e.toString() : e.getMessage());
             return ResultInfo.fail(config.commonFailCode, config.commonFailMessage);
         }
         return ResultInfo.success(config.commonSuccessCode, proceed, config.commonSuccessMessage);
