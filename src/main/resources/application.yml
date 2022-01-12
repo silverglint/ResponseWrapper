@@ -1,0 +1,8 @@
+server:
+  port: 8081
+
+responseHandle:
+  common-success-code: 201
+  common-fail-code: -5
+  common-success-message: success
+  common-fail-message: 系统异常
