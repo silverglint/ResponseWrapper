@@ -9,10 +9,10 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.sky</groupId>
-    <artifactId>response-wrapper</artifactId>
+    <artifactId>response-wrapper-spring-boot-starter</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>ResponseWrapper</name>
-    <description>ResponseWrapper</description>
+    <name>response-wrapper</name>
+    <description>response-wrapper</description>
     <properties>
         <java.version>1.8</java.version>
     </properties>
