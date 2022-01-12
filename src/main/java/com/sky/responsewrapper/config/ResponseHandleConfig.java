@@ -10,8 +10,8 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 @ConfigurationProperties(prefix = "response-handle")
 public class ResponseHandleConfig {
 
-    public Integer commonSuccessCode;
-    public Integer commonFailCode;
-    public String commonSuccessMessage;
-    public String commonFailMessage;
+    public Integer commonSuccessCode = 200;
+    public Integer commonFailCode = -100;
+    public String commonSuccessMessage = "success";
+    public String commonFailMessage = "系统异常";
 }
