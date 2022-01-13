@@ -24,7 +24,7 @@ public class TestException extends BaseException {
 ```
 ```
     @GetMapping("test1")
-    public Object test1(boolean flag) {
+    public Object test1(@RequestParam boolean flag) {
         if(flag){
             throw TestException.TEST_EXCEPTION_1;
         }else{
