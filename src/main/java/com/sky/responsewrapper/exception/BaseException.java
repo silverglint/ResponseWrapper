@@ -10,11 +10,11 @@ import lombok.EqualsAndHashCode;
 @Data
 public abstract class BaseException extends RuntimeException {
 
-    private Integer code;
+    private String code;
     private Object data;
     private String message;
 
-    public BaseException(Integer code, Object data, String message) {
+    public BaseException(String code, Object data, String message) {
         this.code = code;
         this.data = data;
         this.message = message;

@@ -25,7 +25,7 @@ public class ResponseHandler {
         this.config = config;
     }
 
-    @Pointcut("within(@com.sky.responsewrapper.annotation.ResponseHandle *)")
+    @Pointcut("@within(com.sky.responsewrapper.annotation.ResponseHandle) || @annotation(com.sky.responsewrapper.annotation.ResponseHandle)")
     private void pointcut() {
     }
 

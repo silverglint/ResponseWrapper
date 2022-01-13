@@ -8,25 +8,25 @@ import lombok.Data;
 @Data
 public class ResultInfo {
 
-    private Integer code;
+    private String code;
     private Object data;
     private String message;
 
-    private ResultInfo(Integer code, Object data, String message) {
+    private ResultInfo(String code, Object data, String message) {
         this.code = code;
         this.data = data;
         this.message = message;
     }
 
-    public static ResultInfo success(Integer code, Object data, String message) {
+    public static ResultInfo success(String code, Object data, String message) {
         return new ResultInfo(code, data, message);
     }
 
-    public static ResultInfo fail(Integer code, Object data, String message) {
+    public static ResultInfo fail(String code, Object data, String message) {
         return new ResultInfo(code, data, message);
     }
 
-    public static ResultInfo fail(Integer code, String message) {
+    public static ResultInfo fail(String code, String message) {
         return new ResultInfo(code, null, message);
     }
 }
